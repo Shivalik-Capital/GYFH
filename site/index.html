@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Youth Finance Hackathon (GYFH) — March 26–28, 2027</title>
+  <meta name="description" content="A 48-hour global sprint for student developers building youth fintech, money-literacy games, and social finance in developer sandboxes.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Global Youth Finance Hackathon (GYFH) 2027">
+  <meta property="og:description" content="March 26–28, 2027. Free, virtual, and global for student builders.">
+  <meta property="og:image" content="avatar.svg">
+
+  <!-- Typography: DM Serif Display (Recoleta alternative) + Inter (Lota Grotesque alternative) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* -------------------------------------------------------------
+       HATCH DESIGN SYSTEM TOKENS
+       Hand-drawn zine meets pastel candy store on a warm cream canvas.
+       No box-shadows. Depth through 1px ink-black borders & white cards.
+    ------------------------------------------------------------- */
+    :root {
+      /* Colors */
+      --color-cream-paper: #f5f4f0;
+      --color-pure-white: #ffffff;
+      --color-ink-black: #000000;
+      --color-charcoal: #222222;
+      --color-slate: #333333;
+      --color-fog: #dddfe2;
+      --color-mint-splash: #99ffcc;
+      --color-plum-ink: #160042;
+      --color-aubergine: #26153f;
+      --color-sky-pop: #7bbbff;
+      --color-bubblegum: #ff99cc;
+      --color-peach-pop: #ffcc99;
+
+      /* Typography */
+      --font-serif: 'DM Serif Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Spacing Scale */
+      --space-4: 4px;
+      --space-8: 8px;
+      --space-12: 12px;
+      --space-16: 16px;
+      --space-20: 20px;
+      --space-24: 24px;
+      --space-32: 32px;
+      --space-40: 40px;
+      --space-48: 48px;
+      --space-64: 64px;
+      --space-96: 96px;
+
+      /* Radii */
+      --radius-btn: 12px;
+      --radius-card: 16px;
+      --radius-large: 40px;
+      --radius-pill: 9999px;
+      --radius-tag: 100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--color-cream-paper);
+    }
+
+    body {
+      background-color: var(--color-cream-paper);
+      color: var(--color-ink-black);
+      font-family: var(--font-sans);
+      font-size: 18px;
+      line-height: 1.5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+    }
+
+    /* -------------------------------------------------------------
+       NAVIGATION
+    ------------------------------------------------------------- */
+    nav {
+      padding: 24px 0;
+      background: transparent;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      color: var(--color-ink-black);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-logo .dot {
+      width: 10px;
+      height: 10px;
+      background: var(--color-mint-splash);
+      border: 1px solid var(--color-ink-black);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--color-ink-black);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.7;
+    }
+
+    /* Mint Pill CTA in Navigation */
+    .btn-nav-pill {
+      background: var(--color-mint-splash);
+      color: var(--color-ink-black);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-pill);
+      padding: 8px 20px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.15s ease;
+    }
+
+    .btn-nav-pill:hover {
+      transform: translateY(-2px);
+    }
+
+    /* -------------------------------------------------------------
+       BUTTONS
+    ------------------------------------------------------------- */
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Primary Mint Button */
+    .btn-mint {
+      background: var(--color-mint-splash);
+      color: var(--color-ink-black);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-btn);
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .btn-mint:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Outline Dark Button */
+    .btn-outline {
+      background: transparent;
+      color: var(--color-ink-black);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-btn);
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+
+    /* -------------------------------------------------------------
+       HAND-DRAWN MINT HIGHLIGHT SWASH
+    ------------------------------------------------------------- */
+    .swash-wrap {
+      position: relative;
+      display: inline-block;
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    .swash-bg {
+      position: absolute;
+      left: -6px;
+      right: -6px;
+      bottom: 6px;
+      height: 55%;
+      background: var(--color-mint-splash);
+      border-radius: 40px 10px 30px 12px;
+      z-index: -1;
+      transform: rotate(-1.5deg);
+    }
+
+    /* -------------------------------------------------------------
+       CONFETTI DOTS (Pastel quartet)
+    ------------------------------------------------------------- */
+    .confetti {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .confetti-mint { background: var(--color-mint-splash); }
+    .confetti-sky { background: var(--color-sky-pop); }
+    .confetti-pink { background: var(--color-bubblegum); }
+    .confetti-peach { background: var(--color-peach-pop); }
+
+    /* -------------------------------------------------------------
+       HERO SECTION
+    ------------------------------------------------------------- */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-pill);
+      padding: 6px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-tag span {
+      width: 8px;
+      height: 8px;
+      background: var(--color-mint-splash);
+      border: 1px solid var(--color-ink-black);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(48px, 7.5vw, 92px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.028em;
+      color: var(--color-ink-black);
+      max-width: 980px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-subtext {
+      font-size: 19px;
+      color: var(--color-charcoal);
+      max-width: 620px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* Mascot in the Hero */
+    .hero-mascot-anchor {
+      position: absolute;
+      bottom: -10px;
+      left: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .mascot-speech {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-ink-black);
+      border-radius: 12px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .mascot-speech::after {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 6px 8px 6px 0;
+      border-style: solid;
+      border-color: transparent var(--color-ink-black) transparent transparent;
+    }
+
+    /* -------------------------------------------------------------
+       CIRCUIT / NETWORK ILLUSTRATION PANEL
+    ------------------------------------------------------------- */
+    .circuit-panel {
+      margin: 50px auto 96px;
+      background: var(--color-cream-paper);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-card);
+      padding: 44px 36px;
+      position: relative;
+    }
+
+    .circuit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: center;
+      align-items: center;
+    }
+
+    .circuit-node {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      position: relative;
+    }
+
+    .circuit-node-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-tag);
+      border: 1px solid var(--color-ink-black);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .circuit-node h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .circuit-node p {
+      font-size: 15px;
+      color: var(--color-charcoal);
+    }
+
+    .circuit-center-hub {
+      grid-column: span 3;
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hub-badge {
+      background: var(--color-mint-splash);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-pill);
+      padding: 10px 24px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION STRUCTURES
+    ------------------------------------------------------------- */
+    .section-wrap {
+      margin-bottom: var(--space-96);
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-slate);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.028em;
+    }
+
+    /* -------------------------------------------------------------
+       WHITE CARDS (NO DROP SHADOWS!)
+    ------------------------------------------------------------- */
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .white-card {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-card);
+      padding: 36px 32px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-chip {
+      display: inline-block;
+      align-self: flex-start;
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-tag);
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .chip-peach { background: var(--color-peach-pop); }
+    .chip-sky { background: var(--color-sky-pop); }
+    .chip-pink { background: var(--color-bubblegum); }
+    .chip-mint { background: var(--color-mint-splash); }
+
+    .white-card h3 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .white-card p {
+      font-size: 16px;
+      color: var(--color-charcoal);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .spec-pill-list {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .spec-pill {
+      background: var(--color-cream-paper);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-tag);
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* -------------------------------------------------------------
+       COUNTDOWN ROW
+    ------------------------------------------------------------- */
+    .countdown-card {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-card);
+      padding: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .countdown-units {
+      display: flex;
+      gap: 16px;
+    }
+
+    .clock-unit {
+      text-align: center;
+      border: 1px solid var(--color-ink-black);
+      background: var(--color-cream-paper);
+      border-radius: var(--radius-btn);
+      padding: 12px 18px;
+      min-width: 72px;
+    }
+
+    .clock-unit .num {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+    }
+
+    .clock-unit .label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* -------------------------------------------------------------
+       RUBRIC TABLE (ZINE SPEC)
+    ------------------------------------------------------------- */
+    .rubric-box {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+
+    .rubric-row {
+      display: grid;
+      grid-template-columns: 100px 240px 1fr;
+      padding: 24px 32px;
+      border-bottom: 1px solid var(--color-ink-black);
+      align-items: baseline;
+    }
+
+    .rubric-row:last-child {
+      border-bottom: none;
+    }
+
+    .rubric-row:nth-child(even) {
+      background: #faf9f6;
+    }
+
+    .rubric-pct {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-ink-black);
+    }
+
+    .rubric-label {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .rubric-desc {
+      font-size: 16px;
+      color: var(--color-charcoal);
+      line-height: 1.5;
+    }
+
+    /* -------------------------------------------------------------
+       SAFETY NOTICE
+    ------------------------------------------------------------- */
+    .safety-panel {
+      margin-top: 32px;
+      background: var(--color-cream-paper);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .safety-pill {
+      background: var(--color-peach-pop);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* -------------------------------------------------------------
+       FAQ ACCORDION
+    ------------------------------------------------------------- */
+    .faq-container {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-ink-black);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-btn {
+      width: 100%;
+      padding: 24px 32px;
+      background: none;
+      border: none;
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-ink-black);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-symbol {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--color-ink-black);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 700;
+      background: var(--color-cream-paper);
+      transition: transform 0.2s;
+    }
+
+    .faq-item.open .faq-symbol {
+      transform: rotate(45deg);
+      background: var(--color-mint-splash);
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      font-size: 16px;
+      color: var(--color-charcoal);
+      line-height: 1.6;
+    }
+
+    .faq-body-inner {
+      padding: 0 32px 24px;
+    }
+
+    /* -------------------------------------------------------------
+       REGISTRATION FOOTER BANNER
+    ------------------------------------------------------------- */
+    .register-card {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-ink-black);
+      border-radius: var(--radius-card);
+      padding: 64px 32px;
+      text-align: center;
+      position: relative;
+    }
+
+    .register-card h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: -0.028em;
+      margin-bottom: 16px;
+    }
+
+    .register-card p {
+      max-width: 540px;
+      margin: 0 auto 32px;
+      color: var(--color-charcoal);
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--color-fog);
+      font-size: 15px;
+      color: var(--color-slate);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: var(--color-ink-black);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .circuit-grid { grid-template-columns: 1fr; }
+      .circuit-center-hub { grid-column: span 1; }
+      .rubric-row { grid-template-columns: 80px 1fr; }
+      .rubric-desc { grid-column: span 2; margin-top: 8px; }
+      .hero-mascot-anchor { position: static; justify-content: center; margin-top: 32px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="brand-logo">
+          <span>GYFH</span>
+          <span class="dot"></span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#tracks">Tracks</a>
+          <a href="#rubric">100-Point Rubric</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#faq">FAQ</a>
+        </div>
+
+        <a href="#register" class="btn-nav-pill">
+          Register Free
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Confetti & Hand-Drawn Swash -->
+  <section class="hero">
+    <div class="container">
+      <!-- Scattered Decorative Confetti Dots -->
+      <div class="confetti confetti-mint" style="width: 10px; height: 10px; top: 20px; left: 15%;"></div>
+      <div class="confetti confetti-sky" style="width: 12px; height: 12px; top: 80px; right: 18%;"></div>
+      <div class="confetti confetti-pink" style="width: 8px; height: 8px; bottom: 40px; right: 28%;"></div>
+      <div class="confetti confetti-peach" style="width: 10px; height: 10px; top: 140px; left: 8%;"></div>
+      <div class="confetti confetti-sky" style="width: 9px; height: 9px; bottom: 120px; left: 24%;"></div>
+
+      <div class="hero-tag">
+        <span></span>
+        March 26–28, 2027 • Free & Virtual Worldwide
+      </div>
+
+      <h1 class="hero-title">
+        The global fintech hackathon for
+        <span class="swash-wrap">
+          student builders
+          <span class="swash-bg"></span>
+        </span>.
+      </h1>
+
+      <p class="hero-subtext">
+        48 hours to engineer gamified money-literacy games, micro-saving apps, and decentralized social finance tools—strictly in zero-risk developer sandboxes.
+      </p>
+
+      <!-- Two-Button Group (Mint Filled + Outline) -->
+      <div class="btn-group">
+        <a href="#register" class="btn-mint">
+          Register as a Student
+        </a>
+        <a href="#tracks" class="btn-outline">
+          Explore the 3 Tracks
+        </a>
+      </div>
+
+      <!-- Mascot Character winking in the corner -->
+      <div class="hero-mascot-anchor">
+        <svg width="68" height="68" viewBox="0 0 100 100" fill="none">
+          <!-- Blue Speech Bubble Body -->
+          <path d="M20 50 C20 28, 38 18, 55 18 C72 18, 88 28, 88 50 C88 68, 74 78, 55 78 C48 78, 42 84, 30 90 C34 82, 34 78, 30 76 C24 70, 20 62, 20 50 Z" fill="#7bbbff" stroke="#000000" stroke-width="2.5" stroke-linejoin="round"/>
+          <!-- Pink Headphones -->
+          <path d="M 16 50 C 16 22, 92 22, 92 50" stroke="#ff99cc" stroke-width="6" stroke-linecap="round"/>
+          <rect x="12" y="42" width="10" height="18" rx="5" fill="#ff99cc" stroke="#000000" stroke-width="2"/>
+          <rect x="86" y="42" width="10" height="18" rx="5" fill="#ff99cc" stroke="#000000" stroke-width="2"/>
+          <!-- Winking Face -->
+          <!-- Left Winking Eye (Arch) -->
+          <path d="M 40 48 Q 46 42 52 48" stroke="#000000" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <!-- Right Open Eye -->
+          <circle cx="68" cy="46" r="4" fill="#000000"/>
+          <!-- Smile -->
+          <path d="M 48 58 Q 56 66 64 58" stroke="#000000" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <!-- Cheeks -->
+          <circle cx="38" cy="56" r="3.5" fill="#ff99cc"/>
+          <circle cx="74" cy="56" r="3.5" fill="#ff99cc"/>
+        </svg>
+        <div class="mascot-speech">
+          No real money. 100% sandbox! ✨
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- Circuit Network Illustration Panel -->
+    <div class="circuit-panel">
+      <div class="circuit-grid">
+        <div class="circuit-node">
+          <span class="circuit-node-badge chip-peach">Track 01</span>
+          <h3>Game Engines</h3>
+          <p>Compounding, inflation shock & budgeting simulators.</p>
+        </div>
+
+        <div class="circuit-node">
+          <span class="circuit-node-badge chip-sky">Track 02</span>
+          <h3>Banking Plugs</h3>
+          <p>Micro-saving jars & teen allowance allocation vaults.</p>
+        </div>
+
+        <div class="circuit-node">
+          <span class="circuit-node-badge chip-pink">Track 03</span>
+          <h3>Social Capital</h3>
+          <p>Chit funds, transparent charity & verifiable badges.</p>
+        </div>
+      </div>
+
+      <div class="circuit-center-hub">
+        <div class="hub-badge">
+          ⚡ Connected via Certified Developer Testnets & Sandboxes
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Ticking Countdown Card -->
+    <div class="countdown-card">
+      <div>
+        <span class="section-eyebrow">Sprint Clock</span>
+        <h3 style="font-family: var(--font-serif); font-size: 32px; letter-spacing: -0.02em;">Opening Bell in</h3>
+      </div>
+      <div class="countdown-units">
+        <div class="clock-unit">
+          <span class="num" id="days">--</span>
+          <span class="label">Days</span>
+        </div>
+        <div class="clock-unit">
+          <span class="num" id="hours">--</span>
+          <span class="label">Hours</span>
+        </div>
+        <div class="clock-unit">
+          <span class="num" id="minutes">--</span>
+          <span class="label">Mins</span>
+        </div>
+        <div class="clock-unit">
+          <span class="num" id="seconds">--</span>
+          <span class="label">Secs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- The 3 Tracks Section -->
+    <section id="tracks" class="section-wrap">
+      <div class="section-header">
+        <div class="section-eyebrow">Challenge Arenas</div>
+        <h2 class="section-title">Three tracks. Endless possibilities.</h2>
+      </div>
+
+      <div class="cards-row">
+        <!-- Track 1 -->
+        <div class="white-card">
+          <span class="card-chip chip-peach">Track 01 // Gaming</span>
+          <h3>Financial Literacy & Games</h3>
+          <p>
+            Transform compounding, inflation, and budget survival into games that make financial mechanics impossible to forget.
+          </p>
+          <div class="spec-pill-list">
+            <span class="spec-pill">Canvas / React</span>
+            <span class="spec-pill">FRED API</span>
+            <span class="spec-pill">Simulation</span>
+          </div>
+        </div>
+
+        <!-- Track 2 -->
+        <div class="white-card">
+          <span class="card-chip chip-sky">Track 02 // Savings</span>
+          <h3>Micro-Saving & Teen Banking</h3>
+          <p>
+            Automated spare-change roundups, goal-oriented savings vaults, and chore-to-allowance management tools.
+          </p>
+          <div class="spec-pill-list">
+            <span class="spec-pill">Plaid Sandbox</span>
+            <span class="spec-pill">Stripe Testmode</span>
+            <span class="spec-pill">Next.js</span>
+          </div>
+        </div>
+
+        <!-- Track 3 -->
+        <div class="white-card">
+          <span class="card-chip chip-pink">Track 03 // Social</span>
+          <h3>Social Finance & Web3</h3>
+          <p>
+            Tontines, transparent non-profit treasuries, and peer savings circles—strictly on public testnets with zero speculation.
+          </p>
+          <div class="spec-pill-list">
+            <span class="spec-pill">Sepolia Testnet</span>
+            <span class="spec-pill">Solidity</span>
+            <span class="spec-pill">Ethers.js</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The 100-Point Evaluation Matrix -->
+    <section id="rubric" class="section-wrap">
+      <div class="section-header">
+        <div class="section-eyebrow">Scoring Criteria</div>
+        <h2 class="section-title">The 100-Point Evaluation Spec</h2>
+      </div>
+
+      <div class="rubric-box">
+        <div class="rubric-row">
+          <div class="rubric-pct">25%</div>
+          <div class="rubric-label">Technical Execution</div>
+          <div class="rubric-desc">
+            A working core flow end-to-end; clean git commits; genuine API or smart contract integrations; zero hard-coded fake data.
+          </div>
+        </div>
+
+        <div class="rubric-row">
+          <div class="rubric-pct">25%</div>
+          <div class="rubric-label">Financial Viability</div>
+          <div class="rubric-desc">
+            A defined youth pain point; plausible unit economics; thoughtful distribution plan; realistic MVP scope.
+          </div>
+        </div>
+
+        <div class="rubric-row">
+          <div class="rubric-pct">20%</div>
+          <div class="rubric-label">UX & Youth Ergonomics</div>
+          <div class="rubric-desc">
+            First-time user discovers value in under 60 seconds. Accessible, engaging, and free of predatory dark patterns.
+          </div>
+        </div>
+
+        <div class="rubric-row">
+          <div class="rubric-pct">15%</div>
+          <div class="rubric-label">Compliance & Safety</div>
+          <div class="rubric-desc">
+            Respects minor data privacy (COPPA/GDPR-K), risk disclosures, and avoids gamified gambling mechanics.
+          </div>
+        </div>
+
+        <div class="rubric-row">
+          <div class="rubric-pct">10%</div>
+          <div class="rubric-label">Track Innovation</div>
+          <div class="rubric-desc">
+            A fresh angle on personal finance rather than a generic expense tracker or loan calculator.
+          </div>
+        </div>
+
+        <div class="rubric-row">
+          <div class="rubric-pct">05%</div>
+          <div class="rubric-label">Demo Video & Pitch</div>
+          <div class="rubric-desc">
+            A 3-minute video pitch highlighting the user flow, codebase architecture, and live screen-share walkthrough.
+          </div>
+        </div>
+      </div>
+
+      <!-- Minor Safety Panel -->
+      <div class="safety-panel">
+        <span class="safety-pill">Minor Protection</span>
+        <div>
+          <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 6px;">Zero Real Money & Supervised Mentorship</h4>
+          <p style="font-size: 15px; color: var(--color-charcoal); line-height: 1.6;">
+            GYFH is purely educational. No real currency or live crypto is allowed. All adult mentors communicate exclusively in recorded public Discord stages or supervised queues.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule Overview -->
+    <section id="schedule" class="section-wrap">
+      <div class="section-header">
+        <div class="section-eyebrow">Sprint Milestones</div>
+        <h2 class="section-title">From kickoff to global showcase.</h2>
+      </div>
+
+      <div class="cards-row">
+        <div class="white-card">
+          <span class="card-chip chip-mint">Phase 01</span>
+          <h3>Starter Kits & Mixer</h3>
+          <p>Repositories, API keys, and Discord matchmaking for solo participants.</p>
+          <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 600;">Week of March 15</span>
+        </div>
+
+        <div class="white-card">
+          <span class="card-chip chip-sky">Phase 02</span>
+          <h3>48-Hour Sprint</h3>
+          <p>Worldwide simultaneous start with mentor office hours across all time zones.</p>
+          <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 600;">March 26–28, 2027</span>
+        </div>
+
+        <div class="white-card">
+          <span class="card-chip chip-peach">Phase 03</span>
+          <h3>Results & Showcase</h3>
+          <p>Asynchronous evaluation by 12+ industry judges and verified credentials.</p>
+          <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 600;">April 3, 2027</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section id="faq" class="section-wrap">
+      <div class="section-header">
+        <div class="section-eyebrow">Common Queries</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Who can participate?</span>
+            <span class="faq-symbol">+</span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              Any middle school, high school, or early college student anywhere in the world. No prior finance or coding experience is required. Starter repositories and sandbox guides are provided for beginners!
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Does it cost anything?</span>
+            <span class="faq-symbol">+</span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              No. GYFH is 100% free. All starter kits, API sandboxes, workshops, and Discord infrastructure are completely accessible at zero cost.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Can I build solo or with a team?</span>
+            <span class="faq-symbol">+</span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              You can participate solo or in teams of up to 4 members. We host Discord team-formation channels before kickoff so solo builders can pair up easily.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>What are the prizes?</span>
+            <span class="faq-symbol">+</span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              Verified digital credentials, category awards (Best Beginner Team, Best Compliance Architecture, Best UX), software credits, and portfolio spotlights reviewed by industry engineers.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section id="register" class="section-wrap">
+      <div class="register-card">
+        <!-- Confetti on CTA -->
+        <div class="confetti confetti-mint" style="width: 12px; height: 12px; top: 20px; left: 10%;"></div>
+        <div class="confetti confetti-pink" style="width: 10px; height: 10px; bottom: 20px; right: 12%;"></div>
+        <div class="confetti confetti-sky" style="width: 8px; height: 8px; top: 30px; right: 15%;"></div>
+
+        <h2>Ready to build for Gen Z?</h2>
+        <p>Registration takes 2 minutes. Get instant access to starter repos, sandbox API keys, and our global Discord.</p>
+        <div class="btn-group">
+          <a href="https://forms.google.com" target="_blank" class="btn-mint" style="padding: 14px 32px; font-size: 19px;">
+            Complete Student Registration
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <strong>GYFH 2027</strong> — An Independent Global Student Initiative.
+        </div>
+        <div class="footer-links">
+          <a href="#tracks">Tracks</a>
+          <a href="#rubric">100-Point Rubric</a>
+          <a href="#schedule">Schedule</a>
+          <a href="https://github.com" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Real Countdown Clock Script & Accordion -->
+  <script>
+    // Real Countdown to March 26, 2027 12:00:00 UTC
+    const targetDate = new Date("2027-03-26T12:00:00Z").getTime();
+    function updateClock() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = String(days).padStart(2, '0');
+      document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+      document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // FAQ Accordion
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const body = item.querySelector('.faq-body');
+      const isOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-body').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + "px";
+      }
+    }
+  </script>
+</body>
+</html>
