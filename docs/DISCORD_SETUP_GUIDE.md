@@ -42,8 +42,8 @@ Create these roles in Discord (`Server Settings > Roles`) from top to bottom:
 └── 🏆 #team-registration     (Link to official team submission form)
 
 🎓 TRACK BREAKOUTS (Forum or Text Channels)
-├── 🎮 #track-1-financial-games
-├── 💰 #track-2-micro-savings
+├── 📚 #track-1-money-education
+├── 💰 #track-2-smart-saving
 └── 🌐 #track-3-social-finance
 
 🆘 SUPPORT & MENTORSHIP
